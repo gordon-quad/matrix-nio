@@ -51,15 +51,15 @@ class TestClass(object):
         assert room.display_name == "Empty room?"
         assert room.named_room_name() == None
 
-        room.add_member("@alice:example.org", "")
-        assert room.display_name == "@alice:example.org"
+        room.add_member("@alice:example.org", "Alice")
+        assert room.display_name == "Alice"
 
-        room.add_member("@malory:example.org", "")
+        room.add_member("@malory:example.org", "Alice")
         assert (room.display_name ==
-                "@alice:example.org and @malory:example.org")
-        room.add_member("@steve:example.org", "")
+                "Alice (@alice:example.org) and Alice (@malory:example.org)")
+        room.add_member("@steve:example.org", "Steve")
         assert (room.display_name ==
-                "@alice:example.org and 2 others")
+                "Alice (@alice:example.org) and 2 others")
 
         room.canonical_alias = "Alias for test room"
         assert room.display_name == "Alias for test room"
